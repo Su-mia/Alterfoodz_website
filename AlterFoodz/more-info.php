@@ -42,7 +42,7 @@ session_start();
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
   <?php 
-  include('search.html');
+  include('search.php');
   ?><!-- End Property Search Section -->
 
   <!-- ======= Header/Navbar ======= -->
@@ -51,39 +51,7 @@ session_start();
   ?>
   <!-- End Header/Navbar -->
 
-  
-  <main id="main">
-
-    <!-- ======= Intro Single ======= -->
-    <section class="intro-single">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-lg-8">
-            <div class="title-single-box">
-              <h1 class="title-single">Results</h1>
-              <span class="color-text-a">type</span>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-4">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="index.php">Home</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  Search result
-                </li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-    <?php
+  <?php
 
 include("init.php");
 $Product_id = $_GET['id'];               
@@ -94,78 +62,110 @@ $query2= "SELECT* FROM Brand JOIN Products ON Brand.BrandName = Products.BrandNa
 $result2 = mysqli_query($link, $query2);
 $row2 = mysqli_fetch_assoc($result2);
 ?>
-
-<div class="col-md-5">
-
-<div class="nav-align-top mb-4">
-
   
-    <div class="card-body">
-        <div class="d-flex align-items-start align-items-sm-center gap-4">
-            <img
+  <main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Results</h1>
+              <span class="color-text-a">more information</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="index.php">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  More information
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="property-single nav-arrow-b">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+           
+            <div class="property-single-carousel-pagination carousel-pagination"></div>
+          </div>
+        </div>
+    <div class="row">
+                   
+
+<div class="card-header-c d-flex">
+<div class="col-md-5 col-lg-4">
+                <div class="property-price d-flex justify-content-center foo">
+                  <div class="card-header-c d-flex">
+                  <img
               src="data:image/jpeg;base64,<?php echo base64_encode($row['product_pic']); ?>"
               alt="user-avatar"
               class="d-block rounded"
               height="100"
               width="100"
               id="uploadedAvatar"
-            />
-            <div class="button-wrapper">
-              <h3><?php echo $row['BrandName']; ?> <?php echo $row['product_name']; ?> </h3>
-              
-              <h5>    </h5>
-            </div>
-          </div>
-    </div>
-          <hr class="my-0" />
-          <div class="card-body">
-        <dl class="row mt-2">
-          <dt class="col-sm-3"> Calories </dt>
-          <dd class="col-sm-9" id="calories"><?php echo $row['Calories']; ?></dd>
-
-          <dt class="col-sm-3">Sugar</dt>
-          <dd class="col-sm-9" id="sugar">
-          <?php echo $row['Sugar']; ?>
-          </dd>
-
-          <dt class="col-sm-3">Price</dt>
-          <dd class="col-sm-9"><?php echo $row['price']; ?></dd>
-
-          <dt class="col-sm-3">Country</dt>
-          <dd class="col-sm-9"><?php echo $row2['CountryName']; ?></dd>
-
-          
-
-          <dt class="col-sm-3">Fiber</dt>
-          <dd class="col-sm-9"><?php echo $row['Fiber']; ?></dd>
-
-          <dt class="col-sm-3">Fat</dt>
-          <dd class="col-sm-9"><?php echo $row['Fat']; ?></dd>
-         
-
-          <small class="text-light fw-semibold"></small>
-          <hr class="my-0" />
-          <dt class="col-sm-3">Carbohydrate</dt>
-          <dd class="col-sm-9"><?php echo $row2['Carbohydrate'] ; ?> </dd>
-
-          
-
-          <dt class="col-sm-3">Protein</dt>
-          <dd class="col-sm-9"><?php echo $row2['Protein']; ?></dd>
-
-          
-            <dd class="col-sm-5" id="childbirthcertification"><button type="button" class="btn btn-icon btn-secondary">
-              <span class="tf-icons bx bxs-folder-open"></span>
-            </button></dd>
-
-          </dd>
-      </div>
-
-  </div>
+                   />
+                  
+                  </div>
+                </div>
+                <div class="property-summary">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="title-box-d section-t4">
+                        <h3 class="title-d"><?php echo $row['BrandName']; ?> <?php echo $row['product_name']; ?> </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="summary-list">
+                    <ul class="list">
+                      <li class="d-flex justify-content-between">
+                        <strong>Calories:</strong>
+                        <span><?php echo $row['Calories']; ?></span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Sugar:</strong>
+                        <span><?php echo $row['Sugar']; ?></span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>price:</strong>
+                        <span><?php echo $row['price']; ?></span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>country:</strong>
+                        <span><?php echo $row2['CountryName']; ?></span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Fiber:</strong>
+                        <span>
+                        <?php echo $row['Fiber']; ?>
+                        </span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Fats:</strong>
+                        <span><?php echo $row['Fat']; ?></span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Carbohydrate:</strong>
+                        <span><?php echo $row2['Carbohydrate'] ; ?> </span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Protein:</strong>
+                        <span><?php echo $row2['Protein']; ?></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+             
 </div>
-
-
-
 
 
 </main>

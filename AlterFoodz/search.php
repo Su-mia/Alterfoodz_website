@@ -1,3 +1,9 @@
+<?php
+
+include("init.php");
+              
+
+?>
 <div class="box-collapse">
     <div class="title-box-d">
       <h3 class="title-d">Search for alternatives</h3>
@@ -16,13 +22,16 @@
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="Category">Category</label>
+             
               <select class="form-control form-select form-control-a" id="Category" name="Category">
-                <option>Any</option>
-                <option>chocolate</option>
-                <option>Cookies</option>
-                <option>Milk</option>
-                <option>Bread</option>
-                <option>Chips</option>
+              <option>Any</option>
+                <?php
+                 $query = "SELECT DISTINCT CategoryName FROM Category";
+                 $result = mysqli_query($link, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option>' . $row['CategoryName'] . '</option>';
+                }
+                ?>
               </select>
             </div>
           </div>
@@ -31,29 +40,34 @@
               <label class="pb-2" for="brand_name">Brand name</label>
               <select class="form-control form-select form-control-a" id="brand_name" name="brand_name">
                 <option>Any</option>
-                <option>Nutela</option>
-                <option>Optilla</option>
-                <option>Garido</option>
-                <option>Twist</option>
-                <option>Mahbool</option>
+                <?php
+                 $query = "SELECT DISTINCT BrandName FROM brand";
+                 $result = mysqli_query($link, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option>' . $row['BrandName'] . '</option>';
+                }
+                ?>
               </select>
             </div>
           </div>
-          <div class="col-md-6 mb-2">
+         
+            <h3 class="title-d">filters</h3>
+
+            <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="country">country</label>
               <select class="form-control form-select form-control-a" id="country" name="country">
-                <option>DZ</option>
-                <option>France</option>
-                <option>USA</option>
-                <option>Tunisia</option>
-                <option>Morocco</option>
-                <option>Mali</option>
-                <option selected>All</option>
+              <?php
+                 $query = "SELECT DISTINCT CountryName FROM country";
+                 $result = mysqli_query($link, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option>' . $row['CountryName'] . '</option>';
+                }
+                ?>
               </select>
             </div>
           </div>
-            <h3 class="title-d">filters</h3>
+
             <div class="col-md-3 mb-2">
               <div class="form-group mt-3">
                 <label class="pb-2">Calories</label>
@@ -64,6 +78,7 @@
                 </select>
               </div>
             </div>
+          
             <div class="col-md-3 mb-2">
               <div class="form-group mt-3">
                 <label class="pb-2">fat</label>

@@ -37,7 +37,7 @@ include("init.php");
         }
   
         // Start building the SQL query
-        $sql = "SELECT product_id, price, Fat, Sugar, Calories, Carbohydrate, Protein, Fiber FROM Products WHERE BrandName='$brand_name' AND CategoryName='$Category'";
+        $sql = "SELECT product_id, price, Fat, Sugar, Calories, Carbohydrate, Protein, Fiber, product_pic FROM Products WHERE BrandName='$brand_name' AND CategoryName='$Category'";
         
         // Loop through the filter options and add the corresponding SQL clauses
         foreach ($filter_values as $filter_name => $value) {
