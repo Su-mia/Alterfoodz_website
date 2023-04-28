@@ -232,7 +232,7 @@ session_start();
                 <h2 class="title-a">Most Rated Products</h2>
               </div>
               <div class="title-link">
-                <a href="property-grid.html">All Products
+                <a href="search-result.php">All Products
                   <span class="bi bi-chevron-right"></span>
                 </a>
               </div>
