@@ -76,7 +76,7 @@ session_start();
                       <br> Guessing Games!
                     </h1>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a"> Get Started</span></a> 
+                      <a href="#search"><span class="price-a"> Get Started</span></a> 
                     </p>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ session_start();
                       <br> Help you make better <br> Food choices  <br> 
                     </h1>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">Get Started</span></a>
+                      <a href="#search"><span class="price-a">Get Started</span></a>
                     </p>
                   </div>
                 </div>
@@ -122,7 +122,7 @@ session_start();
                       <br> Choose Smarter,<br> Not Harder 
                     </h1>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">Get Started</span></a>
+                      <a href="#search"><span class="price-a">Get Started</span></a>
                     </p>
                   </div>
                 </div>

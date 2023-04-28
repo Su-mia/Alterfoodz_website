@@ -1,14 +1,5 @@
 <?php 
 session_start();
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-
-
-  echo "<script>
-  alert('You have to login first, please');
-  window.location.href='login.php';
-  </script>";
-
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,105 +78,111 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
           </div>
         </div>
       </div>
-    </section><!-- End Intro Single-->
+    </section>
 
-    <!-- =======  result ======= -->
-    <section class="news-grid grid">
-  <div class="container">
-    <div class="row">
-      <?php 
-        include("init.php");
-        $queryall = "SELECT * FROM Products";
-        
-        if ($resultall=mysqli_query($link,$queryall))
-        {
-          while ($row=mysqli_fetch_row($resultall))
-          {
-            $id = $row[0];
-            $brandname = $row[1];
-            $catgname =  $row[2];
-            $price = $row[3];
-            $fat = $row[4];
-            $sugar =  $row[5];
-            $calories = $row[6];
-            $productname = $row[11];
-            $pic =  base64_encode($row[10]);
 
-            $query2 = "SELECT* FROM Brand JOIN Products ON Brand.BrandName = Products.BrandName WHERE product_id=$id";
-            if ($result2=mysqli_query($link,$query2))
-            { 
-              while ($row2=mysqli_fetch_row($result2))
-              {
-                $country = $row2[1];
-              }
-              mysqli_free_result($result2);
-            }    
-      ?>
-      <div class="col-md-4">
-        <div class="card-box-a card-shadow">
-          <div class="img-box-a">
-            <img src="data:image/jpeg;base64,<?php echo $pic; ?>" alt="" class="img-a img-fluid">
-          </div>
-          <div class="card-overlay">
-            <div class="card-overlay-a-content">
-              <div class="card-header-a">
-                <h2 class="card-title-a">
-                  <a href="property-single.html"><br></a><br>
-                  <span><?php echo htmlspecialchars($brandname);?> </span><br>
-                  <span><?php echo htmlspecialchars($productname);?></span><br>
-                  <div class="star-ratings">
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                  </div> 
-                </h2>
-              </div>
-              <div class="card-body-a">
-                <div class="price-box d-flex">
-                  
-                </div>
-                <a href="more-info.php?id=<?php echo $id; ?>" class="link-a">Click here to view <span class="bi bi-chevron-right"></span></a>
-              </div>
-              <div class="card-footer-a">
-                <ul class="card-info d-flex justify-content-around">
-                  <li>
-                    <h4 class="card-info-title">Calories</h4>
-                    <span><?php echo htmlspecialchars($calories);?><sup></sup></span>
-                  </li>
-                  <li>
-                    <h4 class="card-info-title">Sugar</h4>
-                    <span><?php echo htmlspecialchars($sugar);?> g</span>
-                  </li>
-                  <li>
-                    <h4 class="card-info-title">Price</h4>
-                    <span><?php echo htmlspecialchars($price);?>DZD</span>
-                  </li>
-                  <li>
-                    <h4 class="card-info-title">Country</h4>
-                    <span><?php echo htmlspecialchars($country);?></span>
-                  </li>
-                </ul>
-              </div>
+
+
+    <?php
+
+include("init.php");
+$Product_id = $_GET['id'];               
+$query = "SELECT * FROM Products WHERE product_id = $Product_id";
+$result = mysqli_query($link, $query);
+ $row = mysqli_fetch_assoc($result);
+$query2= "SELECT* FROM Brand JOIN Products ON Brand.BrandName = Products.BrandName WHERE product_id=$Product_id";
+$result2 = mysqli_query($link, $query2);
+$row2 = mysqli_fetch_assoc($result2);
+?>
+
+<div class="col-md-5">
+
+<div class="nav-align-top mb-4">
+
+  
+    <div class="card-body">
+        <div class="d-flex align-items-start align-items-sm-center gap-4">
+            <img
+              src="data:image/jpeg;base64,<?php echo base64_encode($row['product_pic']); ?>"
+              alt="user-avatar"
+              class="d-block rounded"
+              height="100"
+              width="100"
+              id="uploadedAvatar"
+            />
+            <div class="button-wrapper">
+              <h3><?php echo $row['BrandName']; ?> <?php echo $row['product_name']; ?> </h3>
+              
+              <h5>    </h5>
             </div>
           </div>
-        </div>
-      </div>
-      <?php
-          }
-          mysqli_free_result($result);
-        }
-        mysqli_close($link);        
-      ?>
     </div>
+          <hr class="my-0" />
+          <div class="card-body">
+        <dl class="row mt-2">
+          <dt class="col-sm-3"> Calories </dt>
+          <dd class="col-sm-9" id="calories"><?php echo $row['Calories']; ?></dd>
+
+          <dt class="col-sm-3">Sugar</dt>
+          <dd class="col-sm-9" id="sugar">
+          <?php echo $row['Sugar']; ?>
+          </dd>
+
+          <dt class="col-sm-3">Price</dt>
+          <dd class="col-sm-9"><?php echo $row['price']; ?></dd>
+
+          <dt class="col-sm-3">Country</dt>
+          <dd class="col-sm-9"><?php echo $row2['CountryName']; ?></dd>
+
+          
+
+          <dt class="col-sm-3">Fiber</dt>
+          <dd class="col-sm-9"><?php echo $row['Fiber']; ?></dd>
+
+          <dt class="col-sm-3">Fat</dt>
+          <dd class="col-sm-9"><?php echo $row['Fat']; ?></dd>
+         
+
+          <small class="text-light fw-semibold"></small>
+          <hr class="my-0" />
+          <dt class="col-sm-3">Carbohydrate</dt>
+          <dd class="col-sm-9"><?php echo $row2['Carbohydrate'] ; ?> </dd>
+
+          
+
+          <dt class="col-sm-3">Protein</dt>
+          <dd class="col-sm-9"><?php echo $row2['Protein']; ?></dd>
+
+          
+            <dd class="col-sm-5" id="childbirthcertification"><button type="button" class="btn btn-icon btn-secondary">
+              <span class="tf-icons bx bxs-folder-open"></span>
+            </button></dd>
+
+          </dd>
+      </div>
+
   </div>
-</section>
+</div>
 
-   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <section class="section-footer">
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section-footer">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-4">
