@@ -51,7 +51,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
   <?php 
-  include('search.html');
+  include('search.php');
   ?><!-- End Property Search Section -->
 
   <!-- ======= Header/Navbar ======= -->
