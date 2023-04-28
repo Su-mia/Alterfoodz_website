@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['fname']=$r['1'];
         $_SESSION['lname']=$r['2'];
        
-        header("location: search-result.php");
+       header("location: index.php");
        
     } else {
         
