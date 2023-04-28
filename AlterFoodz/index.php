@@ -43,7 +43,7 @@ session_start();
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
   <?php 
-  include('search.html');
+  include('search.php');
   
   ?>
   <!-- End Property Search Section -->
