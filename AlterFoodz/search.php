@@ -15,7 +15,7 @@ include("init.php");
           <div class="col-md-12 mb-2">
             <div class="form-group">
               <label class="pb-2" for="Type">Food name</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="name" name="foodName">
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="name" name="foodName" required>
             </div>
           </div>
           
@@ -27,9 +27,11 @@ include("init.php");
               <option>Any</option>
                 <?php
                  $query = "SELECT DISTINCT CategoryName FROM Category";
-                 $result = mysqli_query($link, $query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                echo '<option>' . $row['CategoryName'] . '</option>';
+                 $result2 = mysqli_query($link, $query);
+                while ($row = mysqli_fetch_assoc($result2)) {
+                  ?>
+                <option> <?php echo $row['CategoryName'] ; ?> </option>;
+                <?php
                 }
                 ?>
               </select>
@@ -40,11 +42,14 @@ include("init.php");
               <label class="pb-2" for="brand_name">Brand name</label>
               <select class="form-control form-select form-control-a" id="brand_name" name="brand_name">
                 <option>Any</option>
+
                 <?php
                  $query = "SELECT DISTINCT BrandName FROM brand";
-                 $result = mysqli_query($link, $query);
-                while ($row = mysqli_fetch_assoc($result)) {
-                echo '<option>' . $row['BrandName'] . '</option>';
+                 $result3 = mysqli_query($link, $query);
+                while ($row = mysqli_fetch_assoc($result3)) {
+                  ?>
+                <option> <?php echo $row['BrandName']; ?> </option>;
+                <?php
                 }
                 ?>
               </select>
@@ -59,8 +64,8 @@ include("init.php");
               <select class="form-control form-select form-control-a" id="country" name="country">
               <?php
                  $query = "SELECT DISTINCT CountryName FROM country";
-                 $result = mysqli_query($link, $query);
-                while ($row = mysqli_fetch_assoc($result)) {
+                 $result4 = mysqli_query($link, $query);
+                while ($row = mysqli_fetch_assoc($result4)) {
                 echo '<option>' . $row['CountryName'] . '</option>';
                 }
                 ?>
