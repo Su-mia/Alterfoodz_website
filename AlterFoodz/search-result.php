@@ -1,4 +1,15 @@
 <?php 
+// if($result)
+// {
+// while ($row=mysqli_fetch_row($result))
+// {
+//   echo " First name :".$row[0];
+//   echo  nl2br (" \n ");
+// }//end while
+// // Free stmt set
+// mysqli_free_result($result);
+// die();
+// }
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 
@@ -47,6 +58,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 </head>
 
 <body>
+
   <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
@@ -60,9 +72,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
   ?>
   <!-- End Header/Navbar -->
 
-  
   <main id="main">
-
+  
     <!-- ======= Intro Single ======= -->
     <section class="intro-single">
       <div class="container">
@@ -94,7 +105,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
   <div class="container">
     <div class="row">
       <?php 
-
         //$result = $_SESSION['result'];
         if($result)
         { 

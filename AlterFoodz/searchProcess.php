@@ -1,13 +1,13 @@
 <?php
-session_start();
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
+// session_start();
+// if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 
-  echo "<script>
-  alert('You have to login first, please');
-  window.location.href='login.php';
-  </script>";
+//   echo "<script>
+//   alert('You have to login first, please');
+//   window.location.href='login.php';
+//   </script>";
 
-}
+// }
 
 include("init.php");
 
