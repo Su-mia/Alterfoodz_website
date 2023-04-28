@@ -2,7 +2,6 @@
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 
-
   echo "<script>
   alert('You have to login first, please');
   window.location.href='login.php';
