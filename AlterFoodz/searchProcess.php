@@ -18,7 +18,7 @@ include("init.php");
 		$brand_name = $_POST["brand_name"];
 
 		// prepare the mysql query statement and bind parameters
-        $query = "SELECT price, Fat, Sugar, Calories, Carbohydrate, Protein, Fiber from Products where product_name='$foodName'";
+        $query = "SELECT * from Products where product_name='$foodName'";
 
         if($Category != "Any")
         {$query .= " AND CategoryName='$Category'";}
@@ -37,8 +37,12 @@ include("init.php");
         }
   
         // Start building the SQL query
-        $sql = "SELECT product_id, price, Fat, Sugar, Calories, Carbohydrate, Protein, Fiber FROM Products WHERE BrandName='$brand_name' AND CategoryName='$Category'";
-        
+        $sql = "SELECT * FROM Products WHERE 1=1";
+        if($Category != "Any")
+        {$sql .= " AND CategoryName='$Category'";}
+        if($brand_name!="Any")
+        {$sql .= " AND BrandName='$brand_name'";}
+
         // Loop through the filter options and add the corresponding SQL clauses
         foreach ($filter_values as $filter_name => $value) {
             $selected_option = $_POST[$filter_name];
@@ -47,7 +51,7 @@ include("init.php");
             if ($selected_option == "less") {
                 $sql .= "<= $value";
             } else {
-                $sql .= "> $value";
+                $sql .= ">= $value";
             }
             }
         }
@@ -55,7 +59,7 @@ include("init.php");
         // Prepare the query
         $result = mysqli_query($link, $sql);
         //$_SESSION['result'] = $result;
-        mysqli_close($link);
+        // mysqli_close($link);
 
 		
 	}

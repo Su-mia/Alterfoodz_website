@@ -35,6 +35,7 @@ CREATE TABLE `Products` (
 CONSTRAINT fk_Products FOREIGN KEY (BrandName) REFERENCES Brand(BrandName) ON DELETE CASCADE,
 CONSTRAINT fk2_Products FOREIGN KEY (CategoryName) REFERENCES Category(CategoryName) ON DELETE CASCADE
 )
+Alter TABLE `Products` Add column product_pic LONGBLOB;
 
 INSERT INTO `category` (`CategoryName`) VALUES ('Chocolate');
 INSERT INTO `category` (`CountryName`) VALUES ('Algeria');

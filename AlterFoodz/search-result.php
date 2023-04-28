@@ -94,24 +94,22 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
   <div class="container">
     <div class="row">
       <?php 
-        include("init.php");
-        
-        
+
         //$result = $_SESSION['result'];
         if($result)
         { 
           while ($row=mysqli_fetch_row($result))
         {
           $id = $row[0];
+          $productname = $row[1];
+          $brandname = $row[2];
+          $catgname =  $row[3];
+          $price = $row[4];
+          $fat = $row[5];
+          $sugar =  $row[6];
+          $calories = $row[7];
           
-          $brandname = $row[1];
-          $catgname =  $row[2];
-          $price = $row[3];
-          $fat = $row[4];
-          $sugar =  $row[5];
-          $calories = $row[6];
-          $productname = $row[11];
-          $pic =  base64_encode($row[10]);
+          $pic =  base64_encode($row[11]);
 
           $query2 = "SELECT* FROM Brand JOIN Products ON Brand.BrandName = Products.BrandName WHERE product_id=$id";
           if ($result2=mysqli_query($link,$query2))
@@ -180,6 +178,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
       }
 
       else{
+        include("init.php");
         $queryall = "SELECT * FROM Products";
         
         if ($resultall=mysqli_query($link,$queryall))
@@ -187,14 +186,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
           while ($row=mysqli_fetch_row($resultall))
           {
             $id = $row[0];
-            $brandname = $row[1];
-            $catgname =  $row[2];
-            $price = $row[3];
-            $fat = $row[4];
-            $sugar =  $row[5];
-            $calories = $row[6];
-            $productname = $row[11];
-            $pic =  base64_encode($row[10]);
+            $productname = $row[1];
+            $brandname = $row[2];
+            $catgname =  $row[3];
+            $price = $row[4];
+            $fat = $row[5];
+            $sugar =  $row[6];
+            $calories = $row[7];
+            $pic =  base64_encode($row[11]);
 
             $query2 = "SELECT* FROM Brand JOIN Products ON Brand.BrandName = Products.BrandName WHERE product_id=$id";
             if ($result2=mysqli_query($link,$query2))
