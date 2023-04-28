@@ -106,7 +106,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
     <div class="row">
       <?php 
         //$result = $_SESSION['result'];
-        if($result)
+        if(isset($result) and $result)
         { 
           while ($row=mysqli_fetch_row($result))
         {
