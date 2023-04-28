@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 
 
@@ -95,6 +95,91 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
     <div class="row">
       <?php 
         include("init.php");
+        
+        
+        //$result = $_SESSION['result'];
+        if($result)
+        { 
+          while ($row=mysqli_fetch_row($result))
+        {
+          $id = $row[0];
+          
+          $brandname = $row[1];
+          $catgname =  $row[2];
+          $price = $row[3];
+          $fat = $row[4];
+          $sugar =  $row[5];
+          $calories = $row[6];
+          $productname = $row[11];
+          $pic =  base64_encode($row[10]);
+
+          $query2 = "SELECT* FROM Brand JOIN Products ON Brand.BrandName = Products.BrandName WHERE product_id=$id";
+          if ($result2=mysqli_query($link,$query2))
+          { 
+            while ($row2=mysqli_fetch_row($result2))
+            {
+              $country = $row2[1];
+            }
+            mysqli_free_result($result2);
+          }    
+    ?>
+    <div class="col-md-4">
+      <div class="card-box-a card-shadow">
+        <div class="img-box-a">
+          <img src="data:image/jpeg;base64,<?php echo $pic; ?>" alt="" class="img-a img-fluid">
+        </div>
+        <div class="card-overlay">
+          <div class="card-overlay-a-content">
+            <div class="card-header-a">
+              <h2 class="card-title-a">
+                <a href="property-single.html"><br></a><br>
+                <span><?php echo htmlspecialchars($brandname);?> </span><br>
+                <span><?php echo htmlspecialchars($productname);?></span><br>
+                <div class="star-ratings">
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div> 
+              </h2>
+            </div>
+            <div class="card-body-a">
+              <div class="price-box d-flex">
+                
+              </div>
+              <a href="more-info.php?id=<?php echo $id; ?>" class="link-a">Click here to view <span class="bi bi-chevron-right"></span></a>
+            </div>
+            <div class="card-footer-a">
+              <ul class="card-info d-flex justify-content-around">
+                <li>
+                  <h4 class="card-info-title">Calories</h4>
+                  <span><?php echo htmlspecialchars($calories);?><sup></sup></span>
+                </li>
+                <li>
+                  <h4 class="card-info-title">Sugar</h4>
+                  <span><?php echo htmlspecialchars($sugar);?> g</span>
+                </li>
+                <li>
+                  <h4 class="card-info-title">Price</h4>
+                  <span><?php echo htmlspecialchars($price);?>DZD</span>
+                </li>
+                <li>
+                  <h4 class="card-info-title">Country</h4>
+                  <span><?php echo htmlspecialchars($country);?></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php
+        }
+        mysqli_free_result($result);
+      }
+
+      else{
         $queryall = "SELECT * FROM Products";
         
         if ($resultall=mysqli_query($link,$queryall))
@@ -174,9 +259,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
       </div>
       <?php
           }
-          mysqli_free_result($result);
+          mysqli_free_result($resultall);
         }
-        mysqli_close($link);        
+      }
+        mysqli_close($link);  
+          
       ?>
     </div>
   </div>

@@ -18,9 +18,15 @@ include("init.php");
 		$brand_name = $_POST["brand_name"];
 
 		// prepare the mysql query statement and bind parameters
-		$query = mysqli_query($link,"SELECT price, Fat, Sugar, Calories, Carbohydrate, Protein, Fiber from Products where product_name='$foodName' AND BrandName='$brand_name' AND CategoryName='$Category'",);
-		$results = mysqli_fetch_assoc($query);
+        $query = "SELECT price, Fat, Sugar, Calories, Carbohydrate, Protein, Fiber from Products where product_name='$foodName'";
 
+        if($Category != "Any")
+        {$query .= " AND CategoryName='$Category'";}
+        if($brand_name!="Any")
+        {$query .= " AND BrandName='$brand_name'";}
+
+        $query = mysqli_query($link,$query,);
+        $results = mysqli_fetch_assoc($query);
         // Define an array to hold the filter names
         $filters = array("price", "Fat", "Sugar", "Calories", "Carbohydrate", "Protein", "Fiber");
 
@@ -48,7 +54,9 @@ include("init.php");
         
         // Prepare the query
         $result = mysqli_query($link, $sql);
+        //$_SESSION['result'] = $result;
         mysqli_close($link);
+
 		
 	}
 	else

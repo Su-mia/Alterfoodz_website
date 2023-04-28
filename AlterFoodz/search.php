@@ -18,7 +18,7 @@
               <label class="pb-2" for="Category">Category</label>
               <select class="form-control form-select form-control-a" id="Category" name="Category">
                 <option>Any</option>
-                <option>Chocolate</option>
+                <option>chocolate</option>
                 <option>Cookies</option>
                 <option>Milk</option>
                 <option>Bread</option>
@@ -32,7 +32,7 @@
               <select class="form-control form-select form-control-a" id="brand_name" name="brand_name">
                 <option>Any</option>
                 <option>Nutela</option>
-                <option>Mars</option>
+                <option>Optilla</option>
                 <option>Garido</option>
                 <option>Twist</option>
                 <option>Mahbool</option>
@@ -43,7 +43,7 @@
             <div class="form-group mt-3">
               <label class="pb-2" for="country">country</label>
               <select class="form-control form-select form-control-a" id="country" name="country">
-                <option>Algeria</option>
+                <option>DZ</option>
                 <option>France</option>
                 <option>USA</option>
                 <option>Tunisia</option>
