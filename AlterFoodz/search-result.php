@@ -110,6 +110,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
           $fat = $row[5];
           $sugar =  $row[6];
           $calories = $row[7];
+          
           $pic =  base64_encode($row[11]);
 
           $query2 = "SELECT* FROM Brand JOIN Products ON Brand.BrandName = Products.BrandName WHERE product_id=$id";
