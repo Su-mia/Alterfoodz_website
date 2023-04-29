@@ -252,7 +252,7 @@ session_start();
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="property-single.html">
+                        <a href="property-searc-result.php">
                           <br /> </a> <br>
                           <span > Coca Cola Zero</span>
                           <br>
@@ -310,7 +310,7 @@ session_start();
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="property-single.html">
+                        <a href="search-result.php">
                           <br /> Optilla</a>
                       </h2>
                     </div>
@@ -324,7 +324,7 @@ session_start();
                           <span class="star">&#9733;</span>
                         </div>
                       </div>
-                      <a href="property-single.html" class="link-a">Click here to view
+                      <a href="search-result.php" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -364,7 +364,7 @@ session_start();
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="property-single.html">
+                        <a href="search-result.php">
                           <br /> Sprite</a>
                       </h2>
                     </div>
@@ -378,7 +378,7 @@ session_start();
                           <span class="star">&#9733;</span>
                         </div>
                       </div>
-                      <a href="property-single.html" class="link-a">Click here to view
+                      <a href="search-result.php" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -418,7 +418,7 @@ session_start();
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="property-single.html">
+                        <a href="search-result.php">
                           <br />Candia Choco</a>
                       </h2>
                     </div>
@@ -432,7 +432,7 @@ session_start();
                           <span class="star">&#9733;</span>
                         </div>
                       </div>
-                      <a href="property-single.html" class="link-a">Click here to view
+                      <a href="search-result.php" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>

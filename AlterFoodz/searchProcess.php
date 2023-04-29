@@ -27,6 +27,10 @@ include("init.php");
 
         $query = mysqli_query($link,$query,);
         $results = mysqli_fetch_assoc($query);
+        if(!$results){echo "<script>
+            alert('Our database does not have this product');
+            window.location.href='index.php';
+            </script>";}
         // Define an array to hold the filter names
         $filters = array("price", "Fat", "Sugar", "Calories", "Carbohydrate", "Protein", "Fiber");
 
