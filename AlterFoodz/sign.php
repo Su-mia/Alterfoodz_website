@@ -32,7 +32,7 @@ include("init.php");
 		$pwd_hash = password_hash($pwd,PASSWORD_DEFAULT);
 		// prepare the mysql query statement and bind parameters
 		$query = mysqli_prepare($link,"INSERT INTO users ( fname, lname, email, pass) VALUES (?,?,?,?)");
-		$query->bind_param("ssss",$fname, $lname, $email, $pwd_hash);
+		$query->bind_param("ssss",$fname, $lname, $email, $pwd);
 		
  
 		$query->execute();
