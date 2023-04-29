@@ -1,15 +1,4 @@
 <?php 
-// if($result)
-// {
-// while ($row=mysqli_fetch_row($result))
-// {
-//   echo " First name :".$row[0];
-//   echo  nl2br (" \n ");
-// }//end while
-// // Free stmt set
-// mysqli_free_result($result);
-// die();
-// }
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 
@@ -140,7 +129,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
           <div class="card-overlay-a-content">
             <div class="card-header-a">
               <h2 class="card-title-a">
-                <a href="property-single.html"><br></a><br>
+                <a href="search-result.php"><br></a><br>
                 <span><?php echo htmlspecialchars($brandname);?> </span><br>
                 <span><?php echo htmlspecialchars($productname);?></span><br>
                 <div class="star-ratings">
@@ -224,7 +213,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
             <div class="card-overlay-a-content">
               <div class="card-header-a">
                 <h2 class="card-title-a">
-                  <a href="property-single.html"><br></a><br>
+                  <a href="search-result.php"><br></a><br>
                   <span><?php echo htmlspecialchars($brandname);?> </span><br>
                   <span><?php echo htmlspecialchars($productname);?></span><br>
                   <div class="star-ratings">
